@@ -65,7 +65,7 @@
                 resultInp.innerHTML = 'enter a number'
             }else{
                 if (viewport.value == 0) {
-                    viewport.value = 1440
+                    viewport.value = 1728
                 }
                 const result = (pixels.value / viewport.value * 100).toFixed(2)
                 resultInp.innerHTML = `clamp(${Math.round(pixels.value / 1.5)}px, ${result}vw, ${pixels.value}px)`
