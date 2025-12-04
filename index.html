@@ -1,84 +1,14 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>vw calc</title>
-    <link rel="shortcut icon" href="img/icon.png" type="image/x-icon">
-    <style>
-        body {
-            color: rgb(185, 127, 137);
-        }
-        .wrapper {
-            display: flex;
-            flex-direction: column;
-            gap: 10px;
-            padding: 20px;
-            width: clamp(200px, 20.83vw, 300px);
-            margin: clamp(33px, 3.47vw, 50px) auto;
-            background-color: rgb(255, 218, 224);
-            box-shadow: 5px 5px 0 rgb(185, 127, 137);
-            border-radius: 20px;
-            align-items: center;
-        }
-        input {
-            color: inherit;
-            outline: 0;
-            border: none;
-            padding: 10px 5px;
-            border-radius: 10px;
-            width: 90%;
-        }
-        input::placeholder {
-            color: rgb(212, 198, 201);
-        }
-        button {
-            color: rgb(185, 127, 137);
-            background-color: transparent;
-            width: 100px;
-            box-shadow: 2px 2px 0 rgb(185, 127, 137);
-            border: 1px solid rgb(185, 127, 137);
-            padding: 5px;
-            border-radius: 10px;
-            cursor: pointer;
-        }
-        button:hover {
-            box-shadow: none;
-            transform: translate(2px, 2px);
-        }
-    </style>
-</head>
-<body>
-    <div class="wrapper">
-        <input class="viewport" placeholder="viewport (default 1440px)" type="text" autocomplete="of">
-        <input class="pixels" placeholder="px" type="text" autocomplete="of">
-        <button>calculate</button>
-        <div class="result"></div>
-    </div>
-    <script>
-        const viewport = document.querySelector('.viewport')
-        const pixels = document.querySelector('.pixels')
-        const btn = document.querySelector('button')
-        const resultInp = document.querySelector('.result')
-        function calculate(){
-            if (isNaN(viewport.value || pixels.value) && viewport.value || pixels.value == 0){
-                resultInp.innerHTML = 'enter a number'
-            }else{
-                if (viewport.value == 0) {
-                    viewport.value = 1440
-                }
-                const result = (pixels.value / viewport.value * 100).toFixed(2)
-                resultInp.innerHTML = `clamp(${Math.round(pixels.value / 1.5)}px, ${result}vw, ${pixels.value}px)`
-                navigator.clipboard.writeText(resultInp.innerHTML)
-                pixels.value = ''
-            }
-        }
-        btn.onclick = () => {calculate()}
-        document.addEventListener('keydown', function(){
-          if(event.shiftKey){
-            calculate()
-          }
-        })
-    </script>
-</body>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>relative sizes calc</title>
+    <link rel="stylesheet" href="/src/index.css">
+    <link rel="shortcut icon" href="img/icon.png" type="image/x-icon" />
+  </head>
+  <body>
+    <div id="root"></div>
+    <script type="module" src="/src/index.tsx"></script>
+  </body>
 </html>
