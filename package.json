@@ -2,7 +2,7 @@
 	"name": "relative-sizes-calc",
 	"version": "1.0.0",
 	"homepage": "https://deonopinallae.github.io/relative-sizes-calc",
-	"main": "index.js",
+	"type": "module",
 	"scripts": {
 		"dev": "vite",
 		"build": "vite build",
