@@ -41,7 +41,10 @@ input {
 	border-radius: 10px;
 	width: 90%;
 }
-input::placeholder {
+.rem input::placeholder {
+	color: rgb(158, 177, 195);
+}
+.vw input::placeholder {
 	color: rgb(212, 198, 201);
 }
 button {
